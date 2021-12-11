@@ -1,5 +1,4 @@
 import { ref, unref, inject, computed } from 'vue'
-import { useGlobalConfig as useGlobalConfigLegacy } from '@element-plus/utils/util'
 import { elFormItemKey, elFormKey } from '@element-plus/tokens'
 import { buildProp, componentSize } from '@element-plus/utils/props'
 import { useProp, useGlobalConfig } from '..'
@@ -20,9 +19,6 @@ export const useSize = (
 
   const size = ignore.prop ? emptyRef : useProp<ComponentSize>('size')
   const globalConfig = ignore.global ? emptyRef : useGlobalConfig('size')
-  const globalConfigLegacy = ignore.global
-    ? { size: undefined }
-    : useGlobalConfigLegacy()
   const form = ignore.form ? { size: undefined } : inject(elFormKey, undefined)
   const formItem = ignore.formItem
     ? { size: undefined }
@@ -35,7 +31,6 @@ export const useSize = (
       formItem?.size ||
       form?.size ||
       globalConfig.value ||
-      globalConfigLegacy.size ||
       ''
   )
 }
