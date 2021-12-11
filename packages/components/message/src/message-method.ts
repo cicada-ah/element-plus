@@ -1,6 +1,6 @@
 import { createVNode, render } from 'vue'
 import { isVNode } from '@element-plus/utils/util'
-import PopupManager from '@element-plus/utils/popup-manager'
+import { PopupManager } from '@element-plus/utils/popup-manager'
 import isServer from '@element-plus/utils/isServer'
 import { debugWarn } from '@element-plus/utils/error'
 import MessageConstructor from './message.vue'
